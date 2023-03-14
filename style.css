@@ -1,0 +1,103 @@
+body {
+    background-color: #dfdfeb;
+    margin: 0;
+}
+
+header {
+    background-color: aqua;
+}
+
+#b-header {
+    max-width: 960px;
+    height: 130px;
+}
+
+#b-header-icon {
+    float: left;
+    width: 110px;
+    height: 110px;
+}
+
+#b-header-text {
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+nav {
+    max-width: 960px;
+}
+
+#nav {
+    max-width: fit-content;
+    font-size: x-large;
+}
+
+.nav-link {
+    color: #ae4949;
+    background-color: lightcyan;
+}
+
+div#body {
+    /*max-width: 100%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    padding: 10px;*/
+    font-size: large;
+}
+
+/*h2 {
+    padding-top: 20px;
+}*/
+
+a {
+    color: #ae4949;
+    text-decoration: none;
+}
+
+/*div.t_f {
+    display: flex;
+    flex-direction: column;
+}*/
+
+/*div.table {
+    order: 2;
+}*/
+
+table {
+    border: solid;
+}
+
+div.table table {
+    display: table;
+    max-width: fit-content;
+}
+
+tr.odd {
+    background-color: palevioletred;
+}
+
+tr.even {
+    background-color: purple;
+}
+
+/*div.form {
+    order: 1;
+}*/
+
+/*div.form form {
+    display: block;
+}*/
+
+footer {
+    /*width: 100%;
+    margin: 0;
+    padding: 20px;
+    padding-right: 0;*/
+    background-color: aquamarine;
+}
+
+@media screen and (min-width: 960px) {
+    div#body {
+        max-width: 960px;
+    }
+}
