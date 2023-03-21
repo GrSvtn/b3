@@ -37,7 +37,13 @@
 
         <label class="form-label">
             Дата рождения:
-            <input name="field-date" name="field-birthday" class="form-control" value="2000-01-01" min = "1990-01-01" max = "2006-01-01" type="date" required>
+            <select name="year">
+                <?php 
+                    for ($i = 1990; $i <= 2007; $i++) {
+                      printf('<option value="%d">%d год</option>', $i, $i);
+                    }
+                ?>
+             </select>
         </label><br>
 
         Пол:
