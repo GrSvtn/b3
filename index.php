@@ -84,7 +84,7 @@
             <textarea name="field-biography" class="form-control" placeholder="Расскажите о себе"></textarea>
         </label><br>
 
-        <label class="form-label">С контрактом ознакомлен (-а)<input type="checkbox" class="form-check-input" name="check-1" required></label><br>
+        <label class="form-label">С контрактом ознакомлен (-а)<input type="checkbox" class="form-check-input" name="cntrt" required></label><br>
 
         <input type="submit" class="btn btn-primary" value="Отправить">
 
