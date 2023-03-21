@@ -37,7 +37,7 @@
 
         <label class="form-label">
             Дата рождения:
-            <input name="field-date" name="field-birthday" class="form-control" value="2000-01-01" type="date" required>
+            <input name="field-date" name="field-birthday" class="form-control" value="2000-01-01" min = "1990-01-01" max = "2006-01-01" type="date" required>
         </label><br>
 
         Пол:
