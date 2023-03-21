@@ -19,7 +19,7 @@ try {
     $limbs = $_POST['radio-group-2'];
     $powers = $_POST['field-power'];
     $bio = $_POST['field-biography'];
-    $contract = $_POST['check-1'];
+    $contract = $_POST['cntrt'];
 
 
     $errors = FALSE;
