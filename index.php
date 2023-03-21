@@ -1,62 +1,96 @@
 <!DOCTYPE html>
 
 <html lang="ru">
+
 <head>
+
     <meta charset="UTF-8">
-    <title>b3</title>
+
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <meta content="width = device-width, initial-scale = 1, maximum-scale = 1" name="viewport">
+
+    <title>web4</title>
+
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
-    <div id = "form">
-        <form action="" method="post">
-            <label>
-                Имя:
-                <input name="name" placeholder="Введите ваше имя" class = "form">
-            </label> <br>
+<div class="col-12 mx-auto">
 
-            <label>
-                Email:
-                <input name="email" type="email" placeholder="Введите вашу почту" class = "form">
-            </label><br>
+    <h2 id="form_">Форма</h2>
 
-            <label>
-                Дата рождения:
-                <input name="birthday" type="date" class = "form">
-            </label><br>
+    <form action="" method="POST" class="d-block" id="form">
 
-            <label>
-                Пол:
-                <input type="radio" name="gender" value="M" class = "form">Мужской</label>
-            <label><input checked = "checked" type="radio" name="gender" value="F" class = "form">Женский</label><br>
+        <label class="form-label">
+            Имя:
+            <input name="field-name" class="form-control" placeholder="Введите своё имя">
+        </label> <br>
 
-            <label>
-                Количество конечностей:
-                <input type="radio" name="limbs" value="4" class = "form" checked = "checked">4</label>
-            <label><input type="radio" name="limbs" value="3" class = "form">3</label>
-            <label><input type="radio" name="limbs" value="2" class = "form">2</label>
-            <label><input type="radio" name="limbs" value="1" class = "form">1</label><br>
+        <label class="form-label">
+            Email:
+            <input name="field-email" class="form-control" type="email" placeholder="Введите вашу почту">
+        </label><br>
 
-            <label>
-                Сверхспособности:
-                <select name="superpowers[]" multiple class = "form">
-                    <option value="immortality">Бессмертие</option>
-                    <option value="levitation">Левитация</option>
-                    <option value="telepathy">Телепатия</option>
-                    <option value="telekinesis">Телекинез</option>
-                </select>
-            </label><br>
+        <label class="form-label">
+            Дата рождения:
+            <input name="field-date" name="field-birthday" class="form-control" value="2000-01-01" type="date">
+        </label><br>
 
-            <label>
-                Биография:
-                <textarea name="bio" placeholder="Расскажите о себе" class = "form"></textarea>
-            </label><br>
+        Пол:
+        <div class="form-check-inline"><label class="form-label"><input type="radio" class="form-check-input"
+                                                                        name="radio-group-1"
+                                                                        value="Man">Мужской</label></div>
+        <div class="form-check-inline"><label class="form-label"><input type="radio" class="form-check-input"
+                                                                        checked="checked" name="radio-group-1"
+                                                                        value="Female">Женский</label><br></div><br>
 
-            <label><input type="checkbox" name="contract" class = "form">С контрактом ознакомлен (-а)</label><br>
+        Количество конечностей:
+        <div class="form-check-inline"><label class="form-check-label"><input type="radio" class="form-check-input"
+                                                                              name="radio-group-2" value="0">0</label>
+        </div>
+        <div class="form-check-inline"><label class="form-check-label"><input type="radio" class="form-check-input"
+                                                                              name="radio-group-2" value="1">1</label>
+        </div>
+        <div class="form-check-inline"><label class="form-check-label"><input type="radio" class="form-check-input"
+                                                                              name="radio-group-2" value="2">2</label>
+        </div>
+        <div class="form-check-inline"><label class="form-check-label"><input type="radio" class="form-check-input"
+                                                                              name="radio-group-2" value="3">3</label>
+        </div>
+        <div class="form-check-inline"><label class="form-check-label"><input type="radio" class="form-check-input"
+                                                                              checked="checked" name="radio-group-2"
+                                                                              value="4">4</label></div>
+        <div class="form-check-inline"><label class="form-check-label"><input type="radio" class="form-check-input"
+                                                                              name="radio-group-2"
+                                                                              value="5">5</label><br></div>
+        <br>
 
-            <input class = "form" type="submit" value="Отправить">
+        <label class="form-label">
+            Сверхспособности:
+            <select name="field-power[]" class="form-control" multiple="multiple">
+                <option value="Immortality">Бессмертие</option>
+                <option value="Levitation">Левитация</option>
+                <option value="Telepathy" selected="selected">Телепатия</option>
+                <option value="Telekinesis">Телекинез</option>
+            </select>
+        </label><br>
 
-        </form>
-    </div>
+        <label class="form-label">
+            Биография:
+            <textarea name="field-biography" class="form-control" placeholder="Расскажите о себе"></textarea>
+        </label><br>
+
+        <label class="form-label">С контрактом ознакомлен (-а)<input type="checkbox" class="form-check-input" name="check-1"></label><br>
+
+        <input type="submit" class="btn btn-primary" value="Отправить">
+
+    </form>
+</div>
+
 </body>
+
 </html>
