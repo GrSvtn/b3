@@ -27,46 +27,46 @@
 
         <label class="form-label">
             Имя:
-            <input name="field-name" class="form-control" placeholder="Введите своё имя">
+            <input name="field-name" class="form-control" placeholder="Введите своё имя" required>
         </label> <br>
 
         <label class="form-label">
             Email:
-            <input name="field-email" class="form-control" type="email" placeholder="Введите вашу почту">
+            <input name="field-email" class="form-control" type="email" placeholder="Введите вашу почту" required>
         </label><br>
 
         <label class="form-label">
             Дата рождения:
-            <input name="field-date" name="field-birthday" class="form-control" value="2000-01-01" type="date">
+            <input name="field-date" name="field-birthday" class="form-control" value="2000-01-01" type="date" required>
         </label><br>
 
         Пол:
         <div class="form-check-inline"><label class="form-label"><input type="radio" class="form-check-input"
                                                                         name="radio-group-1"
-                                                                        value="Man">Мужской</label></div>
+                                                                        value="Man" required>Мужской</label></div>
         <div class="form-check-inline"><label class="form-label"><input type="radio" class="form-check-input"
                                                                         checked="checked" name="radio-group-1"
-                                                                        value="Female">Женский</label><br></div><br>
+                                                                        value="Female" required>Женский</label><br></div><br>
 
         Количество конечностей:
         <div class="form-check-inline"><label class="form-check-label"><input type="radio" class="form-check-input"
-                                                                              name="radio-group-2" value="0">0</label>
+                                                                              name="radio-group-2" value="0" required>0</label>
         </div>
         <div class="form-check-inline"><label class="form-check-label"><input type="radio" class="form-check-input"
-                                                                              name="radio-group-2" value="1">1</label>
+                                                                              name="radio-group-2" value="1" required>1</label>
         </div>
         <div class="form-check-inline"><label class="form-check-label"><input type="radio" class="form-check-input"
-                                                                              name="radio-group-2" value="2">2</label>
+                                                                              name="radio-group-2" value="2" required>2</label>
         </div>
         <div class="form-check-inline"><label class="form-check-label"><input type="radio" class="form-check-input"
-                                                                              name="radio-group-2" value="3">3</label>
+                                                                              name="radio-group-2" value="3" required>3</label>
         </div>
         <div class="form-check-inline"><label class="form-check-label"><input type="radio" class="form-check-input"
                                                                               checked="checked" name="radio-group-2"
-                                                                              value="4">4</label></div>
+                                                                              value="4" required>4</label></div>
         <div class="form-check-inline"><label class="form-check-label"><input type="radio" class="form-check-input"
                                                                               name="radio-group-2"
-                                                                              value="5">5</label><br></div>
+                                                                              value="5" required>5</label><br></div>
         <br>
 
         <label class="form-label">
@@ -84,7 +84,7 @@
             <textarea name="field-biography" class="form-control" placeholder="Расскажите о себе"></textarea>
         </label><br>
 
-        <label class="form-label">С контрактом ознакомлен (-а)<input type="checkbox" class="form-check-input" name="check-1"></label><br>
+        <label class="form-label">С контрактом ознакомлен (-а)<input type="checkbox" class="form-check-input" name="check-1" required></label><br>
 
         <input type="submit" class="btn btn-primary" value="Отправить">
 
