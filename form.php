@@ -1,96 +1,102 @@
-<?php
-header('Content-Type: text/html; charset=UTF-8');
+<!DOCTYPE html>
 
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    if (!empty($_GET['save'])) {
-        print('Спасибо, результаты сохранены.');
-    }
-    include('form.php');
-    exit();
-}
+<html lang="ru">
 
+<head>
 
-try {
+    <meta charset="UTF-8">
 
-    $name = $_POST['field-name'];
-    $email = $_POST['field-email'];
-    $birthday = $_POST['field-date'];
-    $sex = $_POST['radio-group-1'];
-    $limbs = $_POST['radio-group-2'];
-    $powers = $_POST['field-power'];
-    $bio = $_POST['field-biography'];
-    $contract = $_POST['cntrt'];
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
+    <meta content="width = device-width, initial-scale = 1, maximum-scale = 1" name="viewport">
 
-    $errors = FALSE;
-    if (empty($name) || (!preg_match("/^[a-zA-z]*$/", $name))) {
-        print('Заполните имя.<br/>');
-        $errors = TRUE;
-    }
+    <title>web4</title>
 
-    if (empty($email)) {
-        print('Заполните почту.<br/>');
-        $errors = TRUE;
-    } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors = TRUE;
-        print('Почта заполнена некорректно.<br/>');
-    }
-    if (empty($bio)) {
-        print('Заполните биографию.<br/>');
-        $errors = TRUE;
-    }
-    if (empty($contract)) {
-        print('Согласитесь с условиями.<br/>');
-        $errors = TRUE;
-    }
+    <link rel="stylesheet" href="style.css">
 
+</head>
 
-    if ($errors) {
-        exit();
-    }
+<body>
+<div class="col-12 mx-auto">
 
+    <h2 id="form_">Форма</h2>
 
+    <form action="" method="POST" class="d-block" id="form">
 
+        <label class="form-label">
+            Имя:
+            <input name="field-name" class="form-control" placeholder="Введите своё имя" required>
+        </label> <br>
 
-    $user = 'u53890';
-    $password = '8091112';
+        <label class="form-label">
+            Email:
+            <input name="field-email" class="form-control" type="email" placeholder="Введите вашу почту" required>
+        </label><br>
 
-    $connection = new PDO("mysql:host=localhost;dbname=u53890", $user, $password, array(PDO::ATTR_PERSISTENT => true));
+        <label class="form-label">
+            Дата рождения:
+            <select name="year">
+                <?php 
+                    for ($i = 1990; $i <= 2007; $i++) {
+                      printf('<option value="%d">%d год</option>', $i, $i);
+                    }
+                ?>
+             </select>
+        </label><br>
 
+        Пол:
+        <div class="form-check-inline"><label class="form-label"><input type="radio" class="form-check-input"
+                                                                        name="radio-group-1"
+                                                                        value="Man" required>Мужской</label></div>
+        <div class="form-check-inline"><label class="form-label"><input type="radio" class="form-check-input"
+                                                                        checked="checked" name="radio-group-1"
+                                                                        value="Female" required>Женский</label><br></div><br>
 
-    $query1 = "INSERT INTO form (name, email, birthday, sex, limbs, bio, contract) VALUES (?, ?, ?, ?, ?, ?, ?)";
-    $ex1 = $connection->prepare($query1);
+        Количество конечностей:
+        <div class="form-check-inline"><label class="form-check-label"><input type="radio" class="form-check-input"
+                                                                              name="radio-group-2" value="0" required>0</label>
+        </div>
+        <div class="form-check-inline"><label class="form-check-label"><input type="radio" class="form-check-input"
+                                                                              name="radio-group-2" value="1" required>1</label>
+        </div>
+        <div class="form-check-inline"><label class="form-check-label"><input type="radio" class="form-check-input"
+                                                                              name="radio-group-2" value="2" required>2</label>
+        </div>
+        <div class="form-check-inline"><label class="form-check-label"><input type="radio" class="form-check-input"
+                                                                              name="radio-group-2" value="3" required>3</label>
+        </div>
+        <div class="form-check-inline"><label class="form-check-label"><input type="radio" class="form-check-input"
+                                                                              checked="checked" name="radio-group-2"
+                                                                              value="4" required>4</label></div>
+        <div class="form-check-inline"><label class="form-check-label"><input type="radio" class="form-check-input"
+                                                                              name="radio-group-2"
+                                                                              value="5" required>5</label><br></div>
+        <br>
 
-    $ex1->execute(array($name, $email, $birthday, $sex, $limbs, $bio, $contract));
-    $id_user = $connection->lastInsertId();
+        <label class="form-label">
+            Сверхспособности:
+            <select name="field-power[]" class="form-control" multiple="multiple">
+                <option value="Immortality">Бессмертие</option>
+                <option value="Levitation">Левитация</option>
+                <option value="Telepathy" selected="selected">Телепатия</option>
+                <option value="Telekinesis">Телекинез</option>
+            </select>
+        </label><br>
 
-    $query2 = "INSERT INTO form_power (form_id, power_id) VALUES (?, ?)";
+        <label class="form-label">
+            Биография:
+            <textarea name="field-biography" class="form-control" placeholder="Расскажите о себе"></textarea>
+        </label><br>
 
-    $ex2 = $connection->prepare($query2);
+        <label class="form-label">С контрактом ознакомлен (-а)<input type="checkbox" class="form-check-input" name="cntrt" required></label><br>
 
-    foreach ($powers as $power){
-        switch ($power) {
-            case "Immortality":
-                $ex2->execute(array($id_user, 1));
-                break;
-            case "Levitation":
-                $ex2->execute(array($id_user, 2));
-                break;
-            case "Telepathy":
-                $ex2->execute(array($id_user, 3));
-                break;
-            case "Telekinesis":
-                $ex2->execute(array($id_user, 4));
-                break;
-        }
-    }
+        <input type="submit" class="btn btn-primary" value="Отправить">
 
-    echo "Данные успешно сохранены";
+    </form>
+</div>
 
-} catch (PDOException $e) {
-    print('Database error : ' . $e->getMessage());
-    exit();
-}
+</body>
 
-header('Location: ?save=1');
-?>
+</html>
